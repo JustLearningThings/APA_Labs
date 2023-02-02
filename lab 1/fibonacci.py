@@ -9,7 +9,7 @@ BOLD = '\033[1m'
 ENDC = '\033[0m'
 
 running_time = dict()
-values = [1, 5, 10, 15, 20, 25, 30, 35]
+values = [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100]
 
 def exec_time(name):
     def real_decorator(func):
@@ -136,9 +136,9 @@ def golden_ratio_fib(n: int) -> int:
 
     return int((PHI**n - INV_PHI**n) / SQRT_OF_FIVE)
 
-print('1. Recursive:')
-for value in values:
-    exec_time_recursive(recursive_fib, 'recursive', value)
+# print('1. Recursive:')
+# for value in values:
+#     exec_time_recursive(recursive_fib, 'recursive', value)
 
 print('\n2. Iterative:')
 for value in values:
@@ -174,7 +174,7 @@ for i, key in enumerate(mean_times.keys()):
 
 # graphs
 plot_result()
-del running_time['recursive']
-plot_result()
 del running_time['eigen']
+plot_result()
+del running_time['eigen_optimized']
 plot_result()
